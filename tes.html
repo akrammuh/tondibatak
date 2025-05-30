@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Latin ke Aksara Batak</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    textarea, input, div { width: 100%; margin-top: 10px; font-size: 1.2em; }
+    .output { font-family: 'Noto Sans Batak', serif; border: 1px solid #ccc; padding: 10px; min-height: 50px; }
+  </style>
+</head>
+<body>
+
+<h2>Konverter Latin ke Aksara Batak</h2>
+<textarea id="input" rows="4" placeholder="Ketik teks Latin di sini..."></textarea>
+<div id="output" class="output"></div>
+
+<script>
+  const map = {
+    'a': 'ᯀ', 'b': 'ᯅ', 'd': 'ᯑ', 'g': 'ᯎ',
+    'h': 'ᯂ', 'i': 'ᯤ', 'j': 'ᯐ', 'k': 'ᯂ',
+    'l': 'ᯞ', 'm': 'ᯔ', 'n': 'ᯉ', 'o': 'ᯧ',
+    'p': 'ᯇ', 'r': 'ᯒ', 's': 'ᯘ', 't': 'ᯖ',
+    'u': 'ᯥ', 'w': 'ᯋ', 'y': 'ᯛ', 'e': 'ᯨ'
+  };
+
+  const input = document.getElementById('input');
+  const output = document.getElementById('output');
+
+  input.addEventListener('input', () => {
+    const latin = input.value.toLowerCase();
+    let result = '';
+    for (let char of latin) {
+      result += map[char] || char;
+    }
+    output.innerText = result;
+  });
+</script>
+
+</body>
+</html>
