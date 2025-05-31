@@ -1,34 +1,133 @@
+const img = document.getElementById('hero-img');
+if (!img) {
+  console.warn("Gambar hero tidak ditemukan!");
+}
 
-  const texts = ["HORAS", "Selamat Datang di tondibatak.id"];
-  let textIndex = 0;
-  let charIndex = 0;
-  const typingElement = document.getElementById("typing-text");
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function typeText() {
-    if (charIndex < texts[textIndex].length) {
-      typingElement.textContent += texts[textIndex].charAt(charIndex);
-      charIndex++;
-      setTimeout(typeText, 100); // Kecepatan ketik
-    } else {
-      setTimeout(eraseText, 1000); // Tunggu sebelum hapus
-    }
+function isDarkMode() {
+  // Kalau kamu pakai class dark-mode di body untuk toggle manual, cek itu dulu:
+  if (document.body.classList.contains('dark-mode')) return true;
+
+  // Kalau tidak ada class, fallback ke prefers-color-scheme
+  return mediaQuery.matches;
+}
+
+function updateHeroImage() {
+  if (!img) return;
+
+  if (isDarkMode()) {
+    img.src = 'assets/img/batak_light.png';   // gambar dark mode
+  } else {
+    img.src = 'assets/img/batak_dark.png';   // gambar light mode
+  }
+}
+
+// Jalankan sekali saat load
+updateHeroImage();
+
+// Listener untuk perubahan prefers-color-scheme (otomatis dari sistem)
+if (mediaQuery.addEventListener) {
+  mediaQuery.addEventListener('change', updateHeroImage);
+} else if (mediaQuery.addListener) {
+  mediaQuery.addListener(updateHeroImage);
+}
+
+// Jika kamu ada toggle mode manual, jangan lupa panggil updateHeroImage()
+// setiap kali toggle mode diubah, contoh di fungsi toggle mode kamu:
+// setMode(mode) { ... updateHeroImage(); }
+
+
+
+
+
+
+
+const toggleBtn = document.getElementById('btn-toggle-mode');
+
+function updateHeroImage() {
+  const img = document.getElementById('hero-img');
+  if (!img) {
+    console.log("Gambar tidak ditemukan!");
+    return;
   }
 
-  function eraseText() {
-    if (charIndex > 0) {
-      typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
-      charIndex--;
-      setTimeout(eraseText, 50); // Kecepatan hapus
-    } else {
-      textIndex = (textIndex + 1) % texts.length;
-      setTimeout(typeText, 500); // Tunggu sebelum ketik lagi
-    }
+  if (document.body.classList.contains('dark-mode')) {
+    img.src = 'assets/img/batak_light.png';      // gambar untuk mode dark
+    console.log("Mode gelap, set gambar hero.png");
+  } else {
+    img.src = 'assets/img/batak_dark.png';      // gambar untuk mode light
+    console.log("Mode terang, set gambar ulos.png");
   }
+}
 
-  // Mulai animasi
-  document.addEventListener("DOMContentLoaded", function () {
-    typeText();
-  });
+function setMode(mode) {
+  if (mode === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (toggleBtn) toggleBtn.textContent = "Light";
+    localStorage.setItem('mode', 'dark');
+  } else {
+    document.body.classList.remove('dark-mode');
+    if (toggleBtn) toggleBtn.textContent = "Dark";
+    localStorage.setItem('mode', 'light');
+  }
+  updateHeroImage();  // **update gambar setiap kali mode berubah**
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedMode = localStorage.getItem('mode') || 'light';
+  setMode(savedMode);
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isDark = document.body.classList.contains('dark-mode');
+      setMode(isDark ? 'light' : 'dark');
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+const texts = ["Selamat Datang di tondibatak.id", "HORAS"];
+let textIndex = 0;
+let charIndex = 0;
+const typingElement = document.getElementById("typing-text");
+
+function typeText() {
+  if (charIndex < texts[textIndex].length) {
+    typingElement.textContent += texts[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, 100); // Ketik per karakter
+  } else {
+    setTimeout(eraseText, 1000); // Tunggu sebelum mulai hapus
+  }
+}
+
+function eraseText() {
+  if (charIndex > 0) {
+    typingElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(eraseText, 50); // Hapus per karakter
+  } else {
+    textIndex = (textIndex + 1) % texts.length;
+    setTimeout(typeText, 500); // Tunggu sebelum mulai ketik teks baru
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  typeText();
+});
+
 
 
 
