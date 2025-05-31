@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const texts = ["Selamat Datang di tondibatak.id", "HORAS"];
+const texts = ["Selamat Datang", "Horas ma dihita sude"];
 let textIndex = 0;
 let charIndex = 0;
 const typingElement = document.getElementById("typing-text");
