@@ -27,16 +27,14 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iLanding
-  * Template URL: https://bootstrapmade.com/ilanding-bootstrap-landing-page-template/
-  * Updated: Nov 12 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
+
+  <div id="preloader">
+    <div class="spinner"></div>
+    <p class="loading-text">Mohon bersabar, tunggu sebentar ya...</p>
+  </div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -49,7 +47,7 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Beranda</a></li>
+          <li><a href="#" class="active">Beranda</a></li>
           <li class="dropdown"><a href="#"><span>Aksara Batak</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="aksara-batak.html">Sejarah aksara batak</a></li>
@@ -374,7 +372,7 @@
             <div class="tab-pane fade active show" id="features-tab-1">
               <div class="row">
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
-                  <img src="assets/img/features-illustration-1.webp" alt="" class="img-fluid">
+                  <img src="assets/img/translate.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
                   <h3>Transliterasi Aksara Batak</h3>
@@ -407,7 +405,7 @@
                 </div>
                 
                 <div class="col-lg-6 order-1 order-lg-2 text-center">
-                  <img src="assets/img/features-illustration-2.webp" alt="" class="img-fluid">
+                  <img src="assets/img/kuis.png" alt="" class="img-fluid">
                 </div>
               </div>
             </div><!-- End tab content item -->
@@ -626,7 +624,7 @@
   
         <!-- About -->
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="#" class="logo d-flex align-items-center">
             <span class="sitename">tondibatak.id</span>
           </a>
           <p style="margin: 0; font-style: italic; font-size: 0.9rem;">Rumah digital aksara batak</p>
@@ -638,9 +636,9 @@
           <h4>Navigasi</h4>
           <ul>
             <li><a href="#">Beranda</a></li>
-            <li><a href="#">Aksara Batak</a></li>
-            <li><a href="#">Cerita Rakyat</a></li>
-            <li><a href="#">Sumber</a></li>
+            <li><a href="aksara-batak.html">Aksara Batak</a></li>
+            <li><a href="cerita-rakyat.html">Cerita Rakyat</a></li>
+            <li><a href="sumber.html">Sumber</a></li>
           </ul>
         </div>
   
@@ -679,7 +677,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>

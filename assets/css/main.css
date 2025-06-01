@@ -1,3 +1,50 @@
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e6f8ff; 
+  z-index: 9999;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #CF392C;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  font-size: 16px;
+  animation: fadeIn 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+
+
+
+
 body.dark-mode {
   --background-color: #121212;
   --default-color: #e0e0e0;
@@ -2150,11 +2197,4 @@ section,
   font-size: 20px;
   margin-right: 8px;
   color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
 }
