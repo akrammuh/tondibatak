@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/kuis.css">
+    <title>Game kuis aksara batak - tondibatak.id</title>
+</head>
+
+<body>
+
+
+    <button id="back-button" aria-label="Kembali">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+             xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      
+    <div id="popup-warning" class="popup hide">
+        <p>Silakan pilih jawaban terlebih dahulu untuk melanjutkan.</p>
+    </div>
+    
+    <div class="start-screen">
+        <button id="start-button">Mulai</button>
+    </div>
+    <div id="display-container">
+        <div class="header">
+            <div class="number-of-count">
+                <span class="number-of-question">1 dari 10 pertanyaan</span>
+            </div>
+            <div class="timer-div">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/time-and-date/stopwatch-icon.png"
+                    width="20px" />
+                <span class="time-left">10s</span>
+            </div>
+        </div>
+        <div id="container">
+            <!-- questions and options will be displayed here -->
+        </div>
+        <button id="next-button">Selanjutnya</button>
+    </div>
+    <div class="score-container hide">
+        <div id="user-score">Skor Anda</div>
+        <button id="restart">Ulangi</button>
+    </div>
+
+    <script src="assets/js/kuis.js"></script>
+</body>
+
+</html>
