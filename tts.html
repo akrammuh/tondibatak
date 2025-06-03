@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pengenalan Aksara Batak</title>
-  <link rel="stylesheet" href="assets/css/tts.css">
+  <link rel="stylesheet" href="assets/css/tts.css" />
+  <link href="assets/img/tondibatak.png" rel="icon" />
+  <link href="assets/img/tondibatak.png" rel="apple-touch-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
 </head>
 <body>
 
@@ -17,35 +20,73 @@
     </svg>
   </a>
 
-  <h1>Pengenalan Aksara Batak</h1>
-  <p>Klik huruf untuk mendengarkan pengucapannya</p>
+  <main>
+    <h1>Pengenalan Aksara Batak</h1>
+    <p>Klik huruf untuk mendengarkan pengucapannya</p>
 
-  <div class="aksara-wrapper">
-    <div class="aksara-container">
-      <div class="aksara" data-sound="a">ᯀ</div>
-      <div class="aksara" data-sound="ha">ᯂ</div>
-      <div class="aksara" data-sound="na">ᯉ</div>
-      <div class="aksara" data-sound="ra">ᯒ</div>
-      <div class="aksara" data-sound="ta">ᯖ</div>
-      <div class="aksara" data-sound="ba">ᯅ</div>
-      <div class="aksara" data-sound="wa">ᯋ</div>
-      <div class="aksara" data-sound="i">ᯤ</div>
-      <div class="aksara" data-sound="ma">ᯔ</div>
-      <div class="aksara" data-sound="nga">ᯝ</div>
-      <div class="aksara" data-sound="la">ᯞ</div>
-      <div class="aksara" data-sound="pa">ᯇ</div>
-      <div class="aksara" data-sound="sa">ᯘ</div>
-      <div class="aksara" data-sound="da">ᯑ</div>
-      <div class="aksara" data-sound="ga">ᯎ</div>
-      <div class="aksara" data-sound="ja">ᯐ</div>
-      <div class="aksara" data-sound="u">ᯥ</div>
-      <div class="aksara" data-sound="ya">ᯛ</div>
-      <div class="aksara" data-sound="nya">ᯠ</div>
+    <div class="aksara-wrapper">
+      <div class="aksara-container">
+        <div class="aksara" data-sound="a">ᯀ</div>
+        <div class="aksara" data-sound="ha">ᯂ</div>
+        <div class="aksara" data-sound="na">ᯉ</div>
+        <div class="aksara" data-sound="ra">ᯒ</div>
+        <div class="aksara" data-sound="ta">ᯖ</div>
+        <div class="aksara" data-sound="ba">ᯅ</div>
+        <div class="aksara" data-sound="wa">ᯋ</div>
+        <div class="aksara" data-sound="i">ᯤ</div>
+        <div class="aksara" data-sound="ma">ᯔ</div>
+        <div class="aksara" data-sound="nga">ᯝ</div>
+        <div class="aksara" data-sound="la">ᯞ</div>
+        <div class="aksara" data-sound="pa">ᯇ</div>
+        <div class="aksara" data-sound="sa">ᯘ</div>
+        <div class="aksara" data-sound="da">ᯑ</div>
+        <div class="aksara" data-sound="ga">ᯎ</div>
+        <div class="aksara" data-sound="ja">ᯐ</div>
+        <div class="aksara" data-sound="u">ᯥ</div>
+        <div class="aksara" data-sound="ya">ᯛ</div>
+        <div class="aksara" data-sound="nya">ᯠ</div>
+      </div>
     </div>
-  </div>
+
+    <h4 style="margin-bottom: 6px;">Contoh</h4>
+    <div class="aksara-wrapper" style="margin-top: 0;">
+      <div class="aksara-container">
+        <div class="aksara full" data-sound="sude">ᯂᯬᯒᯘ᯲ ᯔ ᯑᯪᯂᯪᯖ ᯘᯮᯑᯩ</div>
+      </div>
+
+      <div class="penjelasan">
+        <p><strong>Frasa <em>"horas ma dihita sude"</em> dalam bahasa Batak Toba secara umum berarti:</strong></p>
+        <ul>
+          <li>"Semoga kita semua diberkati"</li>
+          <li>"Selamat sejahtera untuk kita semua"</li>
+        </ul>
+        <p><strong>Penjabaran kata per kata:</strong></p>
+        <ul>
+          <li><strong>horas</strong> → salam khas Batak; berarti selamat, sehat, sejahtera, diberkati</li>
+          <li><strong>ma</strong> → partikel yang digunakan untuk menguatkan makna/doa</li>
+          <li><strong>dihita</strong> → kita (termasuk orang yang diajak bicara; bentuk inklusif)</li>
+          <li><strong>sude</strong> → semua</li>
+        </ul>
+        <p>✅ <strong>Makna secara kultural:</strong> Doa atau harapan baik yang ditujukan untuk semua orang yang hadir/diajak bicara.</p>
+      </div>
+    </div>
+  </main>
 
   <!-- JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
   <script src="assets/js/tts.js"></script>
 </body>
+
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.onkeydown = function(e) {
+    if (e.keyCode == 123 || 
+       (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || 
+       (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) || 
+       (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0))) {
+        return false;
+    }
+  }
+</script>
+  
 </html>

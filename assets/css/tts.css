@@ -1,125 +1,132 @@
-/* Reset dan dasar layout */
 @font-face {
   font-family: 'Aksara Batak';
-  src: local('Noto Sans Batak'), 
-       url('NotoSansBatak.eot'), 
-       url('NotoSansBatak.eot?#iefix') format('embedded-opentype'), 
-       url('NotoSansBatak.woff') format('woff'), 
+  src: local('Noto Sans Batak'),
        url('NotoSansBatak.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.batak {
-  font-family: 'Aksara Batak', serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(184deg, #CF392C, #000000);
+  color: white;
+  min-height: 100vh;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+main {
+  padding-top: 100px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(184deg, #CF392C, #000000);
-    color: white;
-    font-family: sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* Body layout dan ruang tombol */
-  body {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-top: 100px; /* ruang agar tombol tidak nutupi judul */
-    min-height: 100vh;
-  }
-  
-  /* Judul */
-  h1 {
-    margin-bottom: 10px;
-  }
-  
-  /* Pembungkus konten agar tidak terlalu lebar */
-  .aksara-wrapper {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 16px 20px; /* padding bawah agar tidak nempel di bawah layar */
-    box-sizing: border-box;
-  }
-  
-  /* Kontainer aksara */
-  .aksara-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  /* Kotak aksara */
+h1, p, h4 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.aksara-wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.aksara-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.aksara {
+  font-size: 32px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+}
+
+.aksara:hover {
+  background-color: #dceeff;
+  transform: scale(1.1);
+}
+
+.aksara.full {
+  width: auto;
+  padding: 10px 16px;
+  min-width: 200px;
+  height: auto;
+  white-space: normal;
+  font-size: 18px;
+  text-align: center;
+}
+
+.penjelasan {
+  font-size: 0.9em;
+  color: #ddd;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.penjelasan ul {
+  margin: 6px 0 10px 20px;
+  padding-left: 0;
+}
+
+#back-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #ffffff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0;
+  z-index: 1000;
+}
+
+#back-button:hover {
+  background: #f5f5f5;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.24);
+}
+
+#back-button svg {
+  transition: transform 0.3s ease;
+}
+
+#back-button:hover svg {
+  transform: translateX(-4px);
+}
+
+@media (max-width: 600px) {
   .aksara {
-    font-size: 32px;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
   }
-  
-  /* Hover efek aksara */
-  .aksara:hover {
-    background-color: #dceeff;
-    transform: scale(1.1);
-  }
-  
-  /* Responsif di layar kecil (HP) */
-  @media (max-width: 600px) {
-    .aksara {
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
-    }
-  }
-  
-  /* Tombol kembali fixed kiri atas */
-  #back-button {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    background: #ffffff;
-    border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 0;
-    user-select: none;
-    z-index: 1000;
-  }
-  
-  #back-button:hover {
-    background: #f5f5f5;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.24);
-  }
-  
-  #back-button svg {
-    transition: transform 0.3s ease;
-  }
-  
-  #back-button:hover svg {
-    transform: translateX(-4px);
-  }
-  
+}
