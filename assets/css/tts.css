@@ -1,4 +1,21 @@
 /* Reset dan dasar layout */
+@font-face {
+  font-family: 'Aksara Batak';
+  src: local('Noto Sans Batak'), 
+       url('NotoSansBatak.eot'), 
+       url('NotoSansBatak.eot?#iefix') format('embedded-opentype'), 
+       url('NotoSansBatak.woff') format('woff'), 
+       url('NotoSansBatak.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.batak {
+  font-family: 'Aksara Batak', serif;
+}
+
+
+
 html, body {
     height: 100%;
     margin: 0;

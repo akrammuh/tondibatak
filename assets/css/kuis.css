@@ -1,3 +1,24 @@
+
+@font-face {
+  font-family: 'Aksara Batak';
+  src: local('Noto Sans Batak'), 
+       url('NotoSansBatak.eot'), 
+       url('NotoSansBatak.eot?#iefix') format('embedded-opentype'), 
+       url('NotoSansBatak.woff') format('woff'), 
+       url('NotoSansBatak.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.batak {
+  font-family: 'Aksara Batak', serif;
+}
+
+
+
+
+
 * {
     padding: 0;
     margin: 0;
@@ -28,7 +49,7 @@
   #restart {
     font-size: 1.3em;
     padding: 0.5em 1.8em;
-    border-radius: 0.2em;
+    border-radius: 20px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
   }
   #restart {
@@ -44,7 +65,7 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    border-radius: 0.6em;
+    border-radius: 20px;
   }
   .header {
     margin-bottom: 1.8em;
@@ -88,7 +109,7 @@
     background-color: #CF392C;
     color: #ffffff;
     padding: 0.7em 1.8em;
-    border-radius: 0.3em;
+    border-radius: 20px;
     float: right;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
   }

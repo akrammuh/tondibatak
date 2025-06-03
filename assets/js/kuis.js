@@ -11,7 +11,7 @@ let startScreen = document.querySelector(".start-screen");
 let startButton = document.getElementById("start-button");
 let questionCount;
 let scoreCount = 0;
-let count = 11;
+let count = 21;  // diubah dari 11 ke 21 untuk 20 detik
 let countdown;
 let answerSelected = false;
 
@@ -19,63 +19,63 @@ let answerSelected = false;
 const quizArray = [
     {
         id: "0",
-        question: "Bahasa apa yang paling banyak digunakan di dunia?",
-        options: ["Spanyol", "Mandarin", "Inggris", "Jerman"],
-        correct: "Mandarin",
+        question: "Huruf Batak Toba untuk bunyi “h” adalah?",
+        options: ["ᯂ", "ᯠ", "ᯋ", "ᯇ"],
+        correct: "ᯂ",
     },
     {
         id: "1",
-        question: "Benua apa yang tidak memiliki gurun?",
-        options: ["Amerika Utara", "Asia", "Afrika", "Eropa"],
-        correct: "Eropa",
+        question: "Manakah di bawah ini yang merupakan lambang vokal “O” dalam aksara Batak?",
+        options: ["ᯪ", "ᯐ", "ᯮ", "ᯬ"],
+        correct: "ᯬ",
     },
     {
         id: "2",
-        question: "Siapa penemu komputer?",
-        options: ["Charles Babbage", "Henry Luce", "Henry Babbage", "Charles Luce"],
-        correct: "Charles Babbage",
+        question: "Manakah di bawah ini yang merupakan penulisan aksara Batak yang benar untuk bunyi “hu”?",
+        options: ["ᯂᯪ", "ᯂᯮ", "ᯂᯩ", "ᯂᯬ"],
+        correct: "ᯂᯮ",
     },
     {
         id: "3",
-        question: "Komputer yang meminta file dari komputer lain disebut?",
-        options: ["Client", "Host", "Router", "Web server"],
-        correct: "Client",
+        question: "Berapa sub-suku Batak yang dikenal menggunakan Aksara Batak dalam sejarahnya?",
+        options: ["2", "3", "6", "1"],
+        correct: "6",
     },
     {
         id: "4",
-        question: "Perangkat keras yang bukan bagian utama dari sistem komputer disebut?",
-        options: ["Peripheral", "Clip art", "Highlight", "Execute"],
-        correct: "Peripheral",
+        question: "Apa salah satu perbedaan utama antara Aksara Batak Toba dan Aksara Batak Karo?",
+        options: ["Aksara Karo tidak memiliki simbol vokal", "Aksara Toba lebih banyak digunakan untuk menulis doa Kristen saja", "Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas", "Aksara Toba ditulis dari kanan ke kiri"],
+        correct: "Aksara Karo memiliki beberapa bentuk huruf yang berbeda dari Toba dan pelafalan khas",
     },
     {
         id: "5",
-        question: "Komputer utama yang menyimpan file di jaringan disebut?",
-        options: ["Clip art", "Mother board", "Peripheral", "File server"],
-        correct: "File server",
+        question: "Dalam Aksara Batak Karo, huruf untuk bunyi “ba” adalah?",
+        options: ["ᯅ", "ᯇ", "ᯆ", "ᯄ"],
+        correct: "ᯆ",
     },
     {
         id: "6",
-        question: "Bagaimana virus komputer menyebar?",
-        options: ["Mengirim email", "Menggunakan laptop saat musim dingin", "Membuka lampiran email", "Belanja online"],
-        correct: "Membuka lampiran email",
+        question: "Aksara Batak digunakan terutama oleh masyarakat di provinsi?",
+        options: ["Sumatera Barat", "Sumatera Utara", "Jambi", "Aceh"],
+        correct: "Sumatera Utara",
     },
     {
         id: "7",
-        question: "Google (www.google.com) adalah?",
-        options: ["Mesin pencari", "Angka dalam matematika", "Direktori gambar", "Layanan chatting"],
-        correct: "Mesin pencari",
+        question: "Aksara Batak termasuk dalam rumpun aksara...?",
+        options: ["Latin", "Brahmi", "Arab", "Romawi"],
+        correct: "Brahmi",
     },
     {
         id: "8",
-        question: "Manakah yang bukan protokol internet?",
-        options: ["HTTP", "FTP", "STP", "IP"],
-        correct: "STP",
+        question: "Aksara Batak pada masa lalu banyak digunakan untuk...?",
+        options: ["Surat cinta", "Tulisan suci dan hukum adat", "Iklan dan majalah", "Administrasi kolonial"],
+        correct: "Tulisan suci dan hukum adat",
     },
     {
         id: "9",
-        question: "Manakah yang bukan nama domain valid?",
-        options: ["www.yahoo.com", "www.yahoo.co.uk", "www.com.yahoo", "www.yahoo.co.in"],
-        correct: "www.com.yahoo",
+        question: "Apa nama naskah kuno Batak yang ditulis menggunakan kulit kayu?",
+        options: ["Ulos", "Pustaha", "Lontar", "Mandala"],
+        correct: "Pustaha",
     },
 ];
 
@@ -105,7 +105,7 @@ nextBtn.addEventListener(
             countOfQuestion.innerHTML =
                 questionCount + 1 + " dari " + quizArray.length + " Pertanyaan";
             quizDisplay(questionCount);
-            count = 11;
+            count = 21;  // reset timer ke 21 untuk 20 detik
             clearInterval(countdown);
             timerDisplay();
             answerSelected = false;
@@ -142,10 +142,12 @@ function quizCreator() {
         let div = document.createElement("div");
         div.classList.add("container-mid", "hide");
         countOfQuestion.innerHTML = 1 + " dari " + quizArray.length + " Pertanyaan";
+
         let question_DIV = document.createElement("p");
-        question_DIV.classList.add("question");
+        question_DIV.classList.add("question", "batak");  // <--- tambah class 'batak' di sini
         question_DIV.innerHTML = i.question;
         div.appendChild(question_DIV);
+
         div.innerHTML += `
             <button class="option-div" onclick="checker(this)">${i.options[0]}</button>
             <button class="option-div" onclick="checker(this)">${i.options[1]}</button>
@@ -186,7 +188,7 @@ function initial() {
     quizContainer.innerHTML = "";
     questionCount = 0;
     scoreCount = 0;
-    count = 11;
+    count = 21;  // reset ke 21 saat mulai
     clearInterval(countdown);
     timerDisplay();
     quizCreator();
@@ -216,7 +218,7 @@ window.onload = () => {
     displayContainer.classList.add("hide");
 };
 
-
+// Tombol kembali ke index.html
 document.getElementById('back-button').addEventListener('click', () => {
-    window.location.href = 'index.html';  // atau path ke halaman utama kamu
-  });
+    window.location.href = 'index.html';  // atau ganti dengan path halaman utama kamu
+});
