@@ -74,7 +74,45 @@ function setMode(mode) {
   updateHeroImage();  // **update gambar setiap kali mode berubah**
 }
 
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('btn-toggle-mode');
+  const icon = document.getElementById('mode-icon');
+
+  function updateIcon(nextMode) {
+    if (icon) {
+      if (nextMode === 'dark') {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon'); // Akan masuk dark → tampilkan moon
+      } else {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun'); // Akan masuk light → tampilkan sun
+      }
+    }
+  }
+
+  function setMode(mode) {
+    if (mode === 'dark') {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('mode', 'dark');
+      updateIcon('light'); // Menunjukkan bahwa klik berikutnya akan ke light
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('mode', 'light');
+      updateIcon('dark'); // Menunjukkan bahwa klik berikutnya akan ke dark
+    }
+
+    if (typeof updateHeroImage === 'function') {
+      updateHeroImage();
+    }
+  }
+
   const savedMode = localStorage.getItem('mode') || 'light';
   setMode(savedMode);
 
@@ -82,10 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const isDark = document.body.classList.contains('dark-mode');
-      setMode(isDark ? 'light' : 'dark');
+      const newMode = isDark ? 'light' : 'dark';
+      setMode(newMode);
     });
   }
 });
+
+
 
 
 
